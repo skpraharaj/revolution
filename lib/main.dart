@@ -11,8 +11,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Revolution',
       theme: ThemeData(
-        primaryColor: Colors.deepPurple,
-        accentColor: Color(0xFFDDCDFA),
+        primaryColor: Color(0xFF800020),
+        accentColor: Color(0xFFF5F5F5),
       ),
       home: HomeScreen(),
     );

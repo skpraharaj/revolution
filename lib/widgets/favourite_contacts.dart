@@ -16,7 +16,7 @@ class FavouriteContacts extends StatelessWidget {
                 Text(
                   'Favourite Contacts',
                   style: TextStyle(
-                    color: Colors.blueGrey,
+                    color: Colors.black,
                     fontSize: 16.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -26,7 +26,7 @@ class FavouriteContacts extends StatelessWidget {
                     Icons.more_horiz,
                   ),
                   iconSize: 25.0,
-                  color: Colors.blueGrey,
+                  color: Colors.black,
                   onPressed: () {},
                 )
               ],
@@ -52,7 +52,7 @@ class FavouriteContacts extends StatelessWidget {
                         Text(
                           favorites[index].name,
                           style: TextStyle(
-                            color: Colors.blueGrey,
+                            color: Colors.black,
                             fontSize: 14.0,
                             fontWeight: FontWeight.w600,
                           ),

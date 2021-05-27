@@ -26,14 +26,14 @@ final User subham =
 final User nikhil =
     User(id: 2, name: 'Nikhil', imageUrl: 'assets/images/nikhil.jpeg');
 final User divyanshu =
-    User(id: 3, name: 'John', imageUrl: 'assets/images/divyanshu.png');
+    User(id: 3, name: 'Divyanshu', imageUrl: 'assets/images/divyanshu.png');
 final User olivia =
     User(id: 4, name: 'Olivia', imageUrl: 'assets/images/olivia.jpg');
 final User sam = User(id: 5, name: 'Sam', imageUrl: 'assets/images/sam.jpg');
 final User sanatan =
     User(id: 6, name: 'Sanatan', imageUrl: 'assets/images/sanatan.jpg');
 final User sophia =
-    User(id: 7, name: 'Steven', imageUrl: 'assets/images/sophia.jpg');
+    User(id: 7, name: 'Sophia', imageUrl: 'assets/images/sophia.jpg');
 
 // FAVORITE CONTACTS
 List<User> favorites = [divyanshu, sanatan, nikhil, sam, olivia];
