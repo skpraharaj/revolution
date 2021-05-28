@@ -86,21 +86,27 @@ class RecentChats extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 5.0),
-                          Container(
-                            height: 20.0,
-                            width: 40.0,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).primaryColor,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(30.0),
-                              ),
-                            ),
-                            child: Text(
-                              'New',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
+                          chat.unread
+                              ? Container(
+                                  height: 20.0,
+                                  width: 40.0,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    color: Theme.of(context).primaryColor,
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(30.0),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    'New',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 11.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                )
+                              : Text(''),
                         ],
                       ),
                     ],
