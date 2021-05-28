@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:revolution/screens/home_screen.dart';
+import 'package:revolution/screens/login_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,10 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF007390),
         accentColor: Color(0xFFEDFAFD),
       ),
-      home: HomeScreen(),
+      initialRoute: 'login_screen',
+      routes: {
+        'login_screen': (context) => LoginScreen(),
+      },
     );
   }
 }
