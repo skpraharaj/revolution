@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+class RegistrationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +28,7 @@ class LoginScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    "Login",
+                    "Register",
                     style: TextStyle(color: Colors.white, fontSize: 40),
                   ),
                   SizedBox(
@@ -101,13 +101,6 @@ class LoginScreen extends StatelessWidget {
                         SizedBox(
                           height: 40,
                         ),
-                        Text(
-                          "Forgot Password?",
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        SizedBox(
-                          height: 40,
-                        ),
                         Container(
                           height: 50,
                           margin: EdgeInsets.symmetric(horizontal: 50),
@@ -116,40 +109,10 @@ class LoginScreen extends StatelessWidget {
                               color: Colors.teal),
                           child: Center(
                             child: Text(
-                              "Login",
+                              "Register",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 40,
-                        ),
-                        Text(
-                          "or",
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        SizedBox(
-                          height: 40,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, 'registration_screen');
-                          },
-                          child: Container(
-                            height: 50,
-                            margin: EdgeInsets.symmetric(horizontal: 50),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                color: Colors.teal),
-                            child: Center(
-                              child: Text(
-                                "Register",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
                             ),
                           ),
                         ),
