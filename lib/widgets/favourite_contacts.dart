@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:revolution/models/message_model.dart';
+import 'package:revolution/screens/chat_screen.dart';
 
 class FavouriteContacts extends StatelessWidget {
   @override
@@ -39,25 +40,35 @@ class FavouriteContacts extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: favorites.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Column(
-                      children: [
-                        CircleAvatar(
-                          radius: 35.0,
-                          backgroundImage:
-                              AssetImage(favorites[index].imageUrl),
+                  return GestureDetector(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => ChatScreen(
+                          user: favorites[index],
                         ),
-                        SizedBox(height: 6.0),
-                        Text(
-                          favorites[index].name,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: Column(
+                        children: [
+                          CircleAvatar(
+                            radius: 35.0,
+                            backgroundImage:
+                                AssetImage(favorites[index].imageUrl),
                           ),
-                        ),
-                      ],
+                          SizedBox(height: 6.0),
+                          Text(
+                            favorites[index].name,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 }),

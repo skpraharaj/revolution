@@ -19,7 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
           color: Colors.white,
           onPressed: () {},
         ),
-        title: Center(child: Text('Chats')),
+        title: Center(
+          child: Text('Chats'),
+        ),
         elevation: 0.0,
         actions: [
           IconButton(icon: Icon(Icons.search), onPressed: () {}),
