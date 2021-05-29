@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:revolution/screens/home_screen.dart';
 import 'package:revolution/screens/login_screen.dart';
 import 'package:revolution/screens/registration_screen.dart';
 

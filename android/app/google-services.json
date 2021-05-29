@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "951038892136",
+    "project_id": "revolution-be106",
+    "storage_bucket": "revolution-be106.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951038892136:android:e8a1e17494dfbc1e3d03dd",
+        "android_client_info": {
+          "package_name": "com.hackthedeveloper.revolution"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951038892136-i5gjocqranb788cccgadt9g35si137tm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKnuY3i2v29j4OhBDtkJRvQGsQLGZ_Hcs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951038892136-i5gjocqranb788cccgadt9g35si137tm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
