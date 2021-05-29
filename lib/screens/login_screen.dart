@@ -1,6 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final _auth = FirebaseAuth.instance;
+  String email;
+  String password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -8,11 +17,11 @@ class LoginScreen extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topCenter,
+            begin: Alignment.topLeft,
             colors: [
               Theme.of(context).primaryColor,
-              Theme.of(context).accentColor,
-              Colors.blueGrey,
+              Theme.of(context).primaryColor.withOpacity(0.7),
+              Theme.of(context).primaryColor.withOpacity(0.9),
             ],
           ),
         ),
@@ -75,10 +84,14 @@ class LoginScreen extends StatelessWidget {
                                   ),
                                 ),
                                 child: TextField(
+                                  keyboardType: TextInputType.emailAddress,
                                   decoration: InputDecoration(
                                       hintText: "Email",
                                       hintStyle: TextStyle(color: Colors.grey),
                                       border: InputBorder.none),
+                                  onChanged: (value) {
+                                    email = value;
+                                  },
                                 ),
                               ),
                               Container(
@@ -89,10 +102,14 @@ class LoginScreen extends StatelessWidget {
                                   ),
                                 ),
                                 child: TextField(
+                                  obscureText: true,
                                   decoration: InputDecoration(
                                       hintText: "Password",
                                       hintStyle: TextStyle(color: Colors.grey),
                                       border: InputBorder.none),
+                                  onChanged: (value) {
+                                    password = value;
+                                  },
                                 ),
                               ),
                             ],
@@ -108,18 +125,27 @@ class LoginScreen extends StatelessWidget {
                         SizedBox(
                           height: 40,
                         ),
-                        Container(
-                          height: 50,
-                          margin: EdgeInsets.symmetric(horizontal: 50),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Colors.teal),
-                          child: Center(
-                            child: Text(
-                              "Login",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                        GestureDetector(
+                          onTap: () async {
+                            final user = await _auth.signInWithEmailAndPassword(
+                                email: email, password: password);
+                            if (user != null) {
+                              Navigator.pushNamed(context, 'home_screen');
+                            }
+                          },
+                          child: Container(
+                            height: 50,
+                            margin: EdgeInsets.symmetric(horizontal: 50),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: Theme.of(context).primaryColor),
+                            child: Center(
+                              child: Text(
+                                "Login",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
                           ),
                         ),
@@ -142,7 +168,7 @@ class LoginScreen extends StatelessWidget {
                             margin: EdgeInsets.symmetric(horizontal: 50),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
-                                color: Colors.teal),
+                                color: Theme.of(context).primaryColor),
                             child: Center(
                               child: Text(
                                 "Register",

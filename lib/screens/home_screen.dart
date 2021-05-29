@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:revolution/widgets/category_selector.dart';
 import 'package:revolution/widgets/favourite_contacts.dart';
 import 'package:revolution/widgets/recent_chats.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -9,6 +10,22 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    getCurrentuser();
+  }
+
+  void getCurrentuser() {
+    FirebaseAuth.instance.authStateChanges().listen((User firebaseUser) {
+      if (firebaseUser == null) {
+        print('User is currently signed out! as ');
+      } else {
+        print('User is signed in!');
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
