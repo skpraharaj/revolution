@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:revolution/screens/home_screen.dart';
 import 'package:revolution/screens/login_screen.dart';
 import 'package:revolution/screens/registration_screen.dart';
+import 'package:revolution/screens/search_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         'login_screen': (context) => LoginScreen(),
         'registration_screen': (context) => RegistrationScreen(),
         'home_screen': (context) => HomeScreen(),
+        'search_screen': (context) => SearchScreen(),
       },
     );
   }

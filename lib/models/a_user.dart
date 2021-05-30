@@ -1,5 +1,5 @@
 class AUser {
-  String userID;
+  String? userID;
 
   AUser({this.userID});
 }

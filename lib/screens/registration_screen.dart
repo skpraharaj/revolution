@@ -1,9 +1,8 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:revolution/screens/home_screen.dart';
 import 'package:revolution/screens/login_screen.dart';
 import 'package:revolution/services/authentication_service.dart';
+import 'package:revolution/services/database_service.dart';
 
 class RegistrationScreen extends StatefulWidget {
   @override
@@ -14,6 +13,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   bool isLoading = false;
 
   AuthenticationService authenticationService = AuthenticationService();
+  DatabaseService databaseService = DatabaseService();
 
   final formKey = GlobalKey<FormState>();
   TextEditingController _usernameTextEditingController =
@@ -24,12 +24,17 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       new TextEditingController();
 
   signMeUp() async {
-    if (formKey.currentState.validate()) {
+    Map<String, String> userInfoMap = {
+      'userName': _usernameTextEditingController.text,
+      'email': _emailTextEditingController.text,
+    };
+    if (formKey.currentState!.validate()) {
       setState(() {
         isLoading = true;
       });
       authenticationService.signUp(_emailTextEditingController.text,
           _passwordTextEditingController.text);
+      databaseService.uploadUserInfo(userInfoMap);
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => HomeScreen()));
     }
@@ -98,12 +103,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                         decoration: BoxDecoration(
                                           border: Border(
                                             bottom: BorderSide(
-                                                color: Colors.grey[200]),
+                                                color: Colors.grey[200]!),
                                           ),
                                         ),
                                         child: TextFormField(
                                           validator: (value) {
-                                            return value.isEmpty ||
+                                            return value!.isEmpty ||
                                                     value.length < 4
                                                 ? "Enter a username with more than 4 charachters"
                                                 : null;
@@ -122,14 +127,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                         decoration: BoxDecoration(
                                           border: Border(
                                             bottom: BorderSide(
-                                                color: Colors.grey[200]),
+                                                color: Colors.grey[200]!),
                                           ),
                                         ),
                                         child: TextFormField(
                                           validator: (value) {
                                             return RegExp(
                                                         r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                                    .hasMatch(value)
+                                                    .hasMatch(value!)
                                                 ? null
                                                 : "Please provide a valid Email address";
                                           },
@@ -149,12 +154,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                         decoration: BoxDecoration(
                                           border: Border(
                                             bottom: BorderSide(
-                                                color: Colors.grey[200]),
+                                                color: Colors.grey[200]!),
                                           ),
                                         ),
                                         child: TextFormField(
                                           validator: (value) {
-                                            return value.length > 6
+                                            return value!.length > 6
                                                 ? null
                                                 : "Please provide a password with atleast 6 charachters";
                                           },

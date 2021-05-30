@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void getCurrentuser() {
-    FirebaseAuth.instance.authStateChanges().listen((User firebaseUser) {
+    FirebaseAuth.instance.authStateChanges().listen((User? firebaseUser) {
       if (firebaseUser == null) {
         print('User is currently signed out! as ');
       } else {
@@ -41,7 +41,12 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         elevation: 0.0,
         actions: [
-          IconButton(icon: Icon(Icons.search), onPressed: () {}),
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              Navigator.pushNamed(context, 'search_screen');
+            },
+          ),
         ],
       ),
       body: Column(

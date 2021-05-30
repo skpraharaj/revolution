@@ -3,7 +3,7 @@ import 'package:revolution/models/message_model.dart';
 import 'package:revolution/models/user_model.dart';
 
 class ChatScreen extends StatefulWidget {
-  final User user;
+  final User? user;
   ChatScreen({this.user});
   @override
   _ChatScreenState createState() => _ChatScreenState();
@@ -42,7 +42,7 @@ class _ChatScreenState extends State<ChatScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            message.time,
+            message.time!,
             style: TextStyle(
               color: Colors.black,
               fontSize: 10.0,
@@ -52,7 +52,7 @@ class _ChatScreenState extends State<ChatScreen> {
           SizedBox(
             height: 8.0,
           ),
-          Text(message.text,
+          Text(message.text!,
               style: TextStyle(
                 color: Colors.blueGrey,
                 fontSize: 14.0,
@@ -68,11 +68,11 @@ class _ChatScreenState extends State<ChatScreen> {
       children: [
         mssg,
         IconButton(
-          icon: message.isLiked
+          icon: message.isLiked!
               ? Icon(Icons.favorite)
               : Icon(Icons.favorite_border),
           iconSize: 30.0,
-          color: message.isLiked ? Color(0xFFA30029) : Colors.blueGrey,
+          color: message.isLiked! ? Color(0xFFA30029) : Colors.blueGrey,
           onPressed: () {},
         )
       ],
@@ -116,7 +116,7 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
-        title: Text(widget.user.name),
+        title: Text(widget.user!.name!),
         actions: [
           IconButton(
             icon: Icon(Icons.more_horiz),
@@ -151,7 +151,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       itemCount: messages.length,
                       itemBuilder: (BuildContext context, int index) {
                         final Message message = messages[index];
-                        final bool isMe = message.sender.id == currentUser.id;
+                        final bool isMe = message.sender!.id == currentUser.id;
                         return _buildMessage(message, isMe);
                       }),
                 ),

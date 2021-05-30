@@ -38,7 +38,7 @@ class RecentChats extends StatelessWidget {
                     padding:
                         EdgeInsets.symmetric(horizontal: 10.0, vertical: 20),
                     decoration: BoxDecoration(
-                      color: chat.unread ? Colors.white : Color(0xFFF5F5F5),
+                      color: chat.unread! ? Colors.white : Color(0xFFF5F5F5),
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(20.0),
                         bottomRight: Radius.circular(20.0),
@@ -51,7 +51,7 @@ class RecentChats extends StatelessWidget {
                           children: [
                             CircleAvatar(
                               radius: 35.0,
-                              backgroundImage: AssetImage(chat.sender.imageUrl),
+                              backgroundImage: AssetImage(chat.sender!.imageUrl!),
                             ),
                             SizedBox(
                               width: 10.0,
@@ -60,7 +60,7 @@ class RecentChats extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  chat.sender.name,
+                                  chat.sender!.name!,
                                   style: TextStyle(
                                     color: Colors.grey,
                                     fontSize: 13.0,
@@ -74,7 +74,7 @@ class RecentChats extends StatelessWidget {
                                   width:
                                       MediaQuery.of(context).size.width * 0.45,
                                   child: Text(
-                                    chat.text,
+                                    chat.text!,
                                     style: TextStyle(
                                       color: Colors.blueGrey,
                                       fontSize: 13.0,
@@ -90,7 +90,7 @@ class RecentChats extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              chat.time,
+                              chat.time!,
                               style: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 13.0,
@@ -98,7 +98,7 @@ class RecentChats extends StatelessWidget {
                               ),
                             ),
                             SizedBox(height: 5.0),
-                            chat.unread
+                            chat.unread!
                                 ? Container(
                                     height: 20.0,
                                     width: 40.0,

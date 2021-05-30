@@ -56,11 +56,11 @@ class FavouriteContacts extends StatelessWidget {
                           CircleAvatar(
                             radius: 35.0,
                             backgroundImage:
-                                AssetImage(favorites[index].imageUrl),
+                                AssetImage(favorites[index].imageUrl!),
                           ),
                           SizedBox(height: 6.0),
                           Text(
-                            favorites[index].name,
+                            favorites[index].name!,
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 14.0,

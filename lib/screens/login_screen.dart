@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:revolution/screens/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -8,8 +9,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _auth = FirebaseAuth.instance;
-  String email;
-  String password;
+  late String email;
+  late String password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,7 +81,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 padding: EdgeInsets.all(10),
                                 decoration: BoxDecoration(
                                   border: Border(
-                                    bottom: BorderSide(color: Colors.grey[200]),
+                                    bottom:
+                                        BorderSide(color: Colors.grey[200]!),
                                   ),
                                 ),
                                 child: TextField(
@@ -98,7 +100,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 padding: EdgeInsets.all(10),
                                 decoration: BoxDecoration(
                                   border: Border(
-                                    bottom: BorderSide(color: Colors.grey[200]),
+                                    bottom:
+                                        BorderSide(color: Colors.grey[200]!),
                                   ),
                                 ),
                                 child: TextField(
@@ -129,9 +132,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           onTap: () async {
                             final user = await _auth.signInWithEmailAndPassword(
                                 email: email, password: password);
-                            if (user != null) {
-                              Navigator.pushNamed(context, 'home_screen');
-                            }
+
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeScreen()),
+                            );
                           },
                           child: Container(
                             height: 50,

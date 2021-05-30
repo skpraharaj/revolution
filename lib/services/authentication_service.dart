@@ -4,13 +4,13 @@ import 'package:revolution/models/a_user.dart';
 class AuthenticationService {
   final _auth = FirebaseAuth.instance;
 
-  AUser _userFromFirebase(User user) {
+  AUser? _userFromFirebase(User? user) {
     return user != null ? AUser(userID: user.uid) : null;
   }
 
   Future signIn(String email, String password) async {
     try {
-      final User resultUser = (await _auth.signInWithEmailAndPassword(
+      final User? resultUser = (await _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       ))
@@ -23,7 +23,7 @@ class AuthenticationService {
 
   Future signUp(String email, String password) async {
     try {
-      final User resultUser = (await _auth.createUserWithEmailAndPassword(
+      final User? resultUser = (await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       ))
