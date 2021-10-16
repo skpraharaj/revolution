@@ -4,6 +4,7 @@ import 'package:revolution/widgets/favourite_contacts.dart';
 import 'package:revolution/widgets/recent_chats.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+// Home Screen
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
