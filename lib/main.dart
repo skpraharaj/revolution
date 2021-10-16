@@ -6,8 +6,7 @@ import 'package:revolution/screens/registration_screen.dart';
 import 'package:revolution/screens/search_screen.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await init();
   runApp(MyApp());
   //A5E6F3
 }
@@ -29,5 +28,10 @@ class MyApp extends StatelessWidget {
         'search_screen': (context) => SearchScreen(),
       },
     );
+  }
+
+  Future<void> init() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
   }
 }
